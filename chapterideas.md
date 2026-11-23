@@ -1,0 +1,52 @@
+- Introduction: Computer architecture, programming languages
+- Motivation: What can we do with programming? Why we should use it?
+- General Programing 101: How does it work?
+- How to get started
+    - Installation 
+        - Programming language
+        - Code editor
+        - Extension
+        - Terminal
+    - Packages
+        - What is a package
+        - Package manager
+        - using a package
+    - File formats
+        - IPYNB
+        - JL
+- First Programming lesson 
+    - types 
+    - basic arithmethics (CALCULATOR)
+    - using functions
+- Data storage
+    - Arrays
+        - vectors
+        - matrices
+        - access data
+        - edit data
+        - allocation 
+    - Tuples
+    - other Data Types (structures and dictonaries)
+- loading data
+- functions
+- loops
+- broadcasting
+- creating nice diagramms
+    - line plot 
+    - scatter plot
+    - heat maps
+    - countours
+    - shape of diagramms (triangle, polar)
+- Easy applications
+    - plotting Data
+    - least square fit and others
+    - statistics 
+    - Visualize topography
+- Numerical modeling
+    - analytical solution vs numerical solutions
+    - grid (1D)
+    - radiactive decay as example
+    - cooling of a dyke
+    - grid (2D)
+    - 2D- Diffusion
+   
