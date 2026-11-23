@@ -1,0 +1,4 @@
+/.quarto/
+/.vscode/
+**/*.quarto_ipynb
+/Manifest.toml

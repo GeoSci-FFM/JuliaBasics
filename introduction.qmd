@@ -1,0 +1,30 @@
+---
+title: "Hello, Quarto"
+format: html
+---
+
+## Markdown
+
+Markdown is an easy to read and write text format:
+
+- It's _plain text_ so works well with version control
+- It can be **rendered** into HTML, PDF, and more
+
+## Code Cell
+
+Here is a Julia code cell:
+
+```{julia}
+using Plots
+x = LinRange(0, pi, 90)
+y = sin.(x)
+plot(x, y)
+```
+
+## Equation
+
+Use LaTeX to write equations:
+
+$$
+\chi' = \sum_{i=1}^n k_i s_i^2
+$$
