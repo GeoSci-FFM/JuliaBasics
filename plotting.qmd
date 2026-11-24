@@ -1,0 +1,88 @@
+---
+title: "Creating a Diagram"
+format: html
+---
+Data can be visualized using many plotting libraries (e.g. `Plots`, `Makie`, etc.). We will be introducing `Plots` here, as it offers a certain simplicity when creating a plot.
+
+First we need to add the package (look at Chapter Packages on how to do so). Then we can load the package in our code:
+```{julia}
+using Plots
+```
+Now we can start to visualize some data!
+
+## Line plot
+Let's start by defining some variables we will use for plotting.
+```{julia}
+#| output: false
+x = LinRange(0,10,100)
+y = 2 * x.^2
+```
+Here we have a 100-element vector for `x` and an expression for `y`. Note the element-wise operation on `x`. This generates a 100-element vector for `y` with each element being an expression of the corresponding element of `x`. To plot this data as a line, you can use the `plot()` function included in `Plots`.
+```{julia}
+#| label: fig-parabola1
+plot(y)
+```
+```{julia}
+#| label: fig-parabola2
+plot(x,y)
+```
+As you can see, `plot()` can take several arguments `plot(y)` will use the input as the y-axis and use a unit-rage for the x-axis. `plot(x,y)` will use the first argument as the x-axis and the second as the y-axis.
+
+We can also start tweaking the appearance of the plot by adding labels to the axes and removing the label as we are only plotting one dataset:
+```{julia}
+#| label: fig-sine
+x = LinRange(0,2pi,181)
+y = sin.(x)
+
+plot(x,y, xlabel="x", ylabel="y", label=false)
+```
+
+## Scatter plot
+But what if the data doesn't fit along a line but scatters? We can also use a scatter plot to visualize the data points individually. `scatter()` works analogously to `plot()`:
+
+```{julia}
+#| label: fig-scatter
+x =  randn(181)
+y =  randn(181)
+
+scatter(x,y, xlabel="x", ylabel="y", label=false)
+```
+
+## Heat map
+Oftentimes however, we do not have data that can be visualized on a two-dimensional line or scatter plot (2D spatial distribution of a quantity). In that case we need two dimensions to parametrize the space, and a third dimension to parametrize the quantity.
+Let's define two independent vectors for the x- and y-axis, as well as an expression for a heat perturbation depending on both x and y:
+```{julia}
+#| output: flase
+x =  LinRange(-50,50,200)
+y =  LinRange(-50,50,200)
+T =  exp.(-((1.5*x').^2 .+ y.^2) / (2*(15^2))) # gaussian function
+```
+As we want T to be a two-dimensional array, we need to make sure to transpose `x` in the expression, as both `x` and `y` are defined as column vectors.
+To visualize this data we can still use a two-dimensional plot and plot the heat distribution as colours. This is called a `heatmap()` and can again take many arguments, `heatmap(x,y,z)` will use x as input for the x-axis, y for the y-axis and z for the coloring:
+```{julia}
+#| label: fig-heatmap
+heatmap(x,y,T, xlabel="x", ylabel="y", aspect_ratio=1, xlims=extrema(x), ylims=extrema(y))
+```
+You should always make sure to check the resulting heatmap if it makes sense, as it is easy to forget transposing correctly.
+## Contour plot
+The contour plot is similar to the heatmap but will only plot lines at certain values of `z`:
+```{julia}
+#| label: fig-contour
+contour(x,y,T, xlabel="x", ylabel="y", aspect_ratio=1, xlims=extrema(x), ylims=extrema(y))
+```
+
+## Other projections
+Aside from a cartesian coordinate system, we can also plot some data using a polar projection by setting the argument `proj` to polar
+```{julia}
+#| label: fig-polar
+θ = LinRange(0,2pi,181)
+r = abs.(sin.(4θ))
+
+plot(θ, r, proj=:polar, xlabel="x", ylabel="y", label=false)
+```
+
+Ternary plot to be added
+<!-- 
+## Saving figures
+
+## Animating figures -->
