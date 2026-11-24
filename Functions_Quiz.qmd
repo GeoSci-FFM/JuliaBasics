@@ -1,0 +1,36 @@
+---
+title: "Functions Quiz"
+format:
+  revealjs:
+    quiz: 
+      checkKey: 'c'
+      resetKey: 'q'
+      shuffleKey: 't'
+      allowNumberKeys: true
+      disableOnCheck: false
+      disableReset: false
+      shuffleOptions: true
+      includeScore: false
+revealjs-plugins:
+  - quiz
+---
+## What elemnts are needed to define a function? {.quiz-question .quiz-multiple}
+
+- the keyword function at the beginning{.correct}
+- the keyword end at the end{.correct}
+- the name of the function{.correct}
+- parentheses directly after the name of the function{.correct}
+
+::: footer
+Click on the correct options then click the check button. If you got it wrong click reset and try again.
+:::
+
+## Which of the statements is true? {.quiz-question .quiz-multiple}
+
+- To use a function it has to be called{.correct}
+- A function always needs at least one input argument
+- One function can only do one calculation/ececude only one action
+
+::: footer
+Click on the correct options then click the check button. If you got it wrong click reset and try again.
+:::

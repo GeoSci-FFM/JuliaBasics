@@ -1,0 +1,66 @@
+---
+title: "Functions"
+format: html
+---
+
+# Defining Your own Functions
+
+As outlined before the elementary functioncs can be used to perform basic arithmetic calculations. 
+```{julia}
+my_variable_1 = 2.0
+my_variable_2 = 1.0
+my_result = my_variable_1 + my_variable_2
+```
+The same operation can be performed with a self defined function:
+```{julia}
+my_variable_1 = 2.0
+my_variable_2 = 1.0
+
+function my_sum(x,y)
+    return x + y
+end
+
+my_result = my_sum(my_variable_1, my_variable_2)
+```
+To define a function you have to use the keyword `function` this will open an environment where you can define your functions. To end this environment you will have to put the keyword `end` at the end of your function. In addition to that you have to give the function a name (e.g. 'my_function').
+```{julia}
+#| output: false
+function my_function()
+
+end
+```
+In the next step you have to think about the arguments that the function should take (e.g. if you want to calculate the difference of to variables a and b, you will need two input arguments ). Inside the function you can define the actual operation with the input arguments. By using the keyword `retrun` before you end the function you can prescribe what the function should return (what you want to retrive as an result if you use the function):
+```{julia}
+#| output: false
+function my_function(a,b)
+    c = a - b
+    return c
+
+end
+```
+In your function you can also add further actions. For example you can add a statment that prints out the result of the clculation:
+```{julia}
+#| output: false
+function my_function(a,b)
+    c = a - b
+    println("The difference between $a and $b is $c")
+    return c
+end
+```
+After you have defined the function you can use it like any other function that we have used before (e.g. `typeof()` or `sizeof()`). To use the function you have to call it by writing the name of the function and put some input arguments inside:
+```{julia}
+x = 12
+y = 5
+my_function(x,y);
+```
+Defining a function instead of coding the operation directly is especially useful if the action or calculation should be perfomed more than one time. 
+
+# Check Your Knowledge
+
+# Try it on Your Own
+
+Write a function that takes the radius of a circle as input argumetn and calculates the area and the circumference of the circle. 
+The Area and the circumference of a circle can be expressed as: $A = πr^2$ and $U = 2πr$
+
+
+
