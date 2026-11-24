@@ -1,0 +1,75 @@
+---
+title: "Data Types and Basic Functions"
+format: html
+---
+# Data Types and Variables
+In programming languages different types of data can be used. The most common types are:
+
+- Integer numbers (e.g. 1, 2, 3)
+- Floating point numbers (e.g. 1.0, 2.0, 3.0)
+- Characters (e.g. 'a', 'b', 'c')
+- Strings (e.g. "abc", "Hello World")
+
+When you write a code you will be able to define variables and assign a value to them. the names of the variable can be chosen by you (you can use characters, underscores and numbers). For example:
+
+```{julia}
+#| output: false
+a = 1
+b = 1.0
+c = "one"
+my_variable_1 = 2.0
+my_variable_2 = 3.0
+```
+
+In your further code you will be able to use the variables and for example be able to perform calculations with data of the type Integer number and Floating point number:
+
+```{julia}
+x = a + a
+```
+```{julia}
+y = b + b
+```
+```{julia}
+my_result = my_variable_1 + my_variable_2
+```
+# Basic Functions
+
+If you forgot the data type of one of your variables you can use `typeof()` to check it:
+
+```{julia}
+typeof(a)
+```
+```{julia}
+typeof(b)
+```
+```{julia}
+typeof(c)
+```
+Below the code box with `typeof()` you can see the output 'Int64'. This means that the type of 'a' is a signed integer that is represented by 64 bits. There is also the possibility to have other data types e.g. 'Int32'. The main difference between this notations is that with more bits a broader range of values can be covered. An Int32 could be used for a range of -2147483648 to 2147483647 while an Int64 could be used for a range of -9223372036854775808 to 9223372036854775807.
+
+By writing `typeof()` you are using a function. You can regognize a function by the parentheses `()` after the name of the function. Functions can take arguments, which will be placed inside the parentheses, and return values. In this case, the argument is the variable you want to check the type of and the return value is the type of data. You can also see that the name of the color of the name of the function and the parentheses are written in a different color than the rest of the code. This is called syntax highlighting and it helps you to read the code easier.
+
+There is also a function which can be used to check the size of the data. This function can be used by tiping `sizeof()`. Like `typeof()` this function takes an argument and returns a value. The argument is the variable you want to check the size of and the return value is the size of the data in bytes. 
+
+```{julia}
+sizeof(a)
+```
+```{julia}
+sizeof(b)
+```
+```{julia}
+sizeof(c)
+```
+With functions you can perform much more actions than checking the size and the type of the data. For example there are many functions for mathematical operations such as `sqrt()` which can be used to calculate the square root of a number, or `sind()`, that can be used to calculate the sinus with input of the angle in degrees.
+
+The basic arithmetic operators `+`, `-`, `*` and `\` are also functions, but they are written in a different way.
+
+If you want to learn about the elementary functions in Julia you can check out the documentation [here](https://docs.julialang.org/en/v1/manual/mathematical-operations/#Mathematical-Operations-and-Elementary-Functions). 
+
+# Check Your Knowledge
+
+
+# Try it on Your Own
+
+Go to Your Editor (e.g.VSCode) or Google Colab and create a new .IPYNB file (Jupyter Notebook), add a new code cell and define some Variables. Use the `typeof()` function and the `sizeof()` function to check the type and the size of your variables. After that try to perform some basic arethmetic operations like `+`, `-`, `*` and `\` with your variables. 
+
