@@ -1,0 +1,165 @@
+---
+title: "Arrays"
+format: html
+---
+## What are arrays?
+Arrays are a data structure used to store values. In Julia, arrays are generated using square brackets `[]`, with each row separated by a semicolon `;`. Each entry is assigned an index (position), starting from 1 (in Julia or MATLAB).
+(Beware! Many languages, like Python, start counting at 0)
+This can be thought of akin to an office building with several numbered floors.
+```{julia}
+#| output: false
+building = [" Flower Shop"; "Landscaping Company"; "Water Company"]
+```
+| | Groundfloor| 1st Floor | 2nd Floor|
+|--|--|--|--|
+| | Flower Shop | Landscaping Company | Water Company|
+|Index | 1 | 2 | 3 | 
+## Access entries of one-dimensional arrays
+These indices can be used to access specific values stored within the array.
+
+You want to find out which Company has their offices on the 2nd floor of the building. To do so, you need to specify which index of the array `building` you want: The 2nd floor corresponds to the index `3`.
+This index can then be provided in square brackets `[]` behind the name of the array:
+```{julia}
+
+Company2 = building[3]
+```
+Now the name of the Company from the 2nd floor is stored in the variable `Company2`.
+
+## One-Dimensional array: vector
+One-dimensional arrays are called vectors. They only contain one value in each row.
+This is the case of the array for the building above: Each floor contains one institution. Such a vector
+```{julia}
+#| output: false
+building = [" Flower Shop"; "Landscaping Company"; "Water Company"]
+```
+or
+```{julia}
+#| output: false
+v = [1; 2; 3]
+```
+represents a 3-element column vector.
+
+## Two-Dimensional array: matrix  
+Matrices are two-dimensional arrays. Again each row is separated by a semicolon `;`. However, now each row contains more than one value, separated simply by a space ` `.
+For our office building this means that each floor contains several numbered offices. 
+```{julia}
+#| output: false
+building = ["Shop room" "Back room"; "Tree experts" "Grass experts"; "Lake water experts" "Ground water experts"]
+```
+A simple 2x2 matrix with integer values may look like this:
+```{julia}
+M = [11 12; 21 22]
+```
+
+## Access entries of matrices
+Consider the simplest example of the office building again: The building only has numbered floors.
+In this case we already saw earlier that the name of the company on one of the floors can be accessed using
+```
+company = building[i]
+```
+with `i` the index of the desired floor.
+
+Let's now again consider the case that the companies occupying the floors have several offices (two-dimensions)
+```{julia}
+#| output: false
+building = ["Shop room" "Back room"; "Tree experts" "Grass experts"; "Lake water experts" "Ground water experts"]
+```
+| | Groundfloor| 1st Floor | 2nd Floor|
+|--|--|--|--|
+|Room Index / Floor Index | 1 | 2 | 3 | 
+|1| Shop room | Tree experts | Lake water experts
+|2| Back room | Grass experts | Ground water experts
+
+We now want to know who is sitting in the first office of the 2nd floor. One way to do so is to consider the two dimensions (building floor and office number) separately, as one would walking to that office. We first go to the correct floor: the second floor has an index `3`. Then we go to the first office of the floor: the first office has an index `1`. Regarding the matrix this means first providing the index of the row, then the column.
+```{julia}
+office = building[3,1]
+```
+When providing more than a single index, the indices are separated by a comma `,`. This pattern can be extended to any number of dimensions. In a three-dimensional array, `T[2,3,1]` will select the entry in the second row, third column and first 'page' of the array.
+
+## Edit enties
+An array is mutable, meaning its contents can be edited. To store a certain value inside an existing array, the index of the array can simply be overwritten. 
+
+Let's say the Lake water experts in our building have been replaced by rain experts.
+```{julia}
+#| output: false
+building[3,1] = "Rain experts"
+```
+Now our building looks like this
+```{julia}
+building
+```
+
+### Useful Functions
+These are some select few functions that come in handy fairly often when dealing with arrays.
+The function `size()` tells you the dimensions (how many rows, columns, etc.) an array has. In the case of the Matrix `M` from above this is: 
+```{julia}
+size(M)
+```
+It is also possible to specify a dimension for which the length will be returned (dimension 1: rows, dimension 2: columns).
+```{julia}
+size(building,1)
+```
+The `size()` function should not be confused with `sizeof()`(`sizeof()` tells you the size in bytes of an object)!
+
+As opposed to `size()` returning the exact dimensions, the function `ndims()` tells you the number of dimensions. A vector has one dimension, a matrix two. As such:
+```{julia}
+ndims(M)
+```
+Later on, you will be learning what a loop is and how to use it. Sometimes, you will want to iterate over all entries of an array and perform an operation accordingly. For this the function `eachindex()` is very useful. This is simple visualization of what a loop over each index does:
+```{julia}
+for i in eachindex(M)
+    println(i)
+end
+```
+This loop takes the first index of the array, prints it out and moves on to the next index, prints it out and moves on to the next index...
+
+
+There are also some function that make it easy to create new arrays with certain values.
+The function `zeros()` generates an array of the specified dimensions filled entirely with zeros.
+
+```{julia}
+zeros(3,2)
+```
+Similarly, `ones()` generates an array of the specified dimensions filled entirely with ones.
+```{julia}
+ones(3,2)
+```
+There also exist functions that generate arrays filled with random numbers. To generate an array filled with random numbers between `0` and `1` you can use: 
+```{julia}
+rand(3)
+```
+### Allocate arrays
+When writing a code, sometimes it is beneficial to first define empty arrays (allocate them). The arrays are then edited and filled as the code runs. To allocate arrays, they can simply be defined using the functions `zeros()` or `ones()` with the correct dimensions before they are needed.
+### Algebra
+Oftentimes it is necessary to apply algebraic operations to matrices for computations. Here are some basic functions that can be applied to arrays.
+To calculate the inverse `M^{-1}` of a matrix `M`, apply the function `inv()` to the matrix:
+```{julia}
+Q = inv(M)
+```
+To calculate the transpose `M^T` of a matrix `M` or change from a column vector to a row vector, add an apostrophe `'` after the array:
+```{julia}
+M'
+```
+```{julia}
+w = v'
+```
+The product of two matrices can be computed as usual. This means it is important to consider the size of the matrices (`[m,n] * [o,p] = [m,p]` only works if `n = o`)!
+```{julia}
+A = [1 2 3; 4 5 6]
+B = [3 2 1; 6 5 4]
+```
+`A` and `B` are both [2,3] matrices. So, `A * B` cannot be computed(`[2,3] * [2,3]`) but 
+```{julia}
+A * B'
+```
+works (`[2,3] * [3,2]`).
+
+## Higher dimensions
+Arrays can also be higher dimensional than a matrix. A higher dimensional array can be initialized analogously to one- or two-dimensional array. A three-dimensional array filled with zeros is:
+```{julia}
+T = zeros(4,3,2)
+```
+
+## Check Your Knowledge
+
+## Try It on Your Own
