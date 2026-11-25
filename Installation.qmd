@@ -1,0 +1,210 @@
+---
+title: "Installation"
+---
+To get started programming in Julia, you will need to be able to run Julia code. If you don't wish to install anything to you device, you can follow this course using [Google CoLab](https://colab.research.google.com/) to work on the Jupyter-Notebooks. It pays off to follow this chapter nonetheless, as many new ideas are introduced.
+
+## Installing Julia
+To start programming in Julia locally (running the code on your own device), we first need to install the language to the machine. Currently, the official Julia documentation recommends installing the version manager `juliaup` to get the latest stable version. 
+For the most up-to-date instructions on how to install Julia, please refer to the official [download page](https://julialang.org/downloads/) and [GitHub](https://github.com/JuliaLang/juliaup).
+
+Below is a step-by-step instruction on how to install the language and verify the installation. If you already have a working installation of Julia, you can jump to the [next section](#using-julia-from-the-terminal).
+
+#### Windows
+You can install Juliaup directly from the Microsoft store [here](https://www.microsoft.com/store/apps/9NJNWW8PVKMN).
+
+#### Mac and Linux
+Go to the terminal and run
+```bash
+curl -fsSL https://install.julialang.org | sh -s --yes
+```
+in the shell. This will install Juliaup with default configurations.
+
+
+### Verifying the Installation
+<!-- (and File formats) -->
+Now that we installed Julia, we can test that the installation works properly. Go to the Terminal and run:
+```bash
+juliaup st
+```
+This should return something like:
+```bash
+ Default  Channel  Version                 Update 
+--------------------------------------------------  
+       *  release  1.13.2+0.x64.linux.gnu
+
+```
+What exactly is specified in the version field will depend on your operating system. If however, the list is empty or release does not have a version specified, please run
+```bash
+juliaup update release
+juliaup default release
+```
+and try the previous command again.
+
+Now, let's verify the Julia version. In the Terminal, run:
+```bash
+julia -v
+```
+You should get something like:
+```bash
+julia version 1.13.2
+```
+If not, try the troubleshooting steps above. 
+
+## Using Julia from the Terminal
+With a working installation of Julia, we are now able to execute some code directly from the terminal. To start a Julia interactive session (also called REPL for read-eval-print-loop) simply type
+```bash
+julia
+```
+in your terminal. Your terminal should now display this:
+
+```
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.13.2 (2026-10-14)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org release
+|__/                   |
+
+julia>
+```
+This is the Julia REPL.
+
+The REPL has several main modes. The most important for the scope of this course are:
+
+- Julia REPL (where we currently are) to execute code
+- Pkg REPL (the built in package manager). We will introduce the functionality of this REPL and the use of packages later on
+- Help mode. Julia will try to return documentation pages on what you enter
+
+### Julian Mode
+the Julian prompt is the default mode of Julia. This is the mode you enter when you start Julia. When you are in this mode the command line looks like this:
+```julia
+julia> 
+```
+Here you can execute code. Let's run a short line to test the waters! Type
+```julia
+println("Hello, World!")
+```
+and hit enter! With this line we told Julia to print a line with the text “Hello, World!”. Julia will return: 
+
+```{julia}
+#| echo: false
+println("Hello, World!")
+```
+How about a small calculation? Type:
+```{julia}
+3 + 5 * sin(pi/2)
+```
+
+### Pkg Mode
+The Pkg mode is a mode of the Julia REPL that deals with—as the name suggests—packages in Julia. You can enter the Pkg mode from the Julia mode by pressing the `]` key (no need to hit enter!):
+```julia
+julia> ]
+```
+Now your command line should have changed to look like this:
+```julia
+(@v1.13) pkg> 
+```
+Let's check if we have any packages installed. Execute:
+```julia
+status
+```
+The list is empty, we don't seem to have any packages installed yet. For now, this is fine. We will come back to the package manager in a few lessons. To exit Pkg mode back to the Julian REPL, press `backspace` or `Ctrl+C`.
+You should be back to the Julia prompt again:
+```julia
+julia> 
+```
+
+### Help Mode
+The help mode is another mode of the Julia REPL that tries to offer quick help and documentation for the language and, if in use, packages. You enter the Help mode from the Julian mode of the REPL by pressing the `?` key (no need to hit enter!):
+```julia
+julia> ?
+```
+Now your command line should have changed to look like this:
+```julia
+help?> 
+```
+Let's look up the documentation of the function we used earlier. Entter:
+```julia
+println
+```
+You should now see a list of some similar functions you might want to search for too, a short definition of the function, and some usage examples.
+
+After you search for something in help mode, Julia automatically switches you back to the Julia prompt. You see:
+```julia
+julia> 
+```
+
+### Leaving the REPL
+After a short tour around the different modes of the Julia REPL, we might want to leave.
+To exit the Julia REPL press `Ctrl+D` or run:
+```julia
+exit()
+```
+You should be back in your regular terminal now.
+
+
+## Installing a Code Editor
+Typing code line-by-line directly via the command line oftentimes isn't the most comfortable, especially when writing and storing a longer program. For this, scripts come in handy. A script stores the code lines of a program in a file, to be run in conjunction.
+Julia has its own file type `<filename>.jl` to signalize that the code contained within is written in Julia. To edit and write scripts comfortably, we will need to install a code editor.
+
+Following are instructions to install two different code editors. You can choose either one, depending on which you prefer (they are both free and run on the same source code):
+
+- VSCode is a popular Code editor, developed by Microsoft
+- VSCodium is an open-source version
+
+### VSCode
+VSCode runs on Windows, macOS, and Linux.
+Go to the [official download page](https://code.visualstudio.com/download) and pick the correct version for your operating system to install.
+And done! Try opening the application to check that there are no errors.
+
+### VSCodium
+VSCodium runs on Windows, macOS, and Linux. Follow the installation instructions for your operating system over on the [official installation page](https://vscodium.com/#install).
+
+
+## Extensions for the Code Editor
+Code editors can be used with a variety of programming languages (Julia, Python, C, JavaScript, ...). Here we will set up the editor to support the Julia language. But you can also add support for more languages to your editor.
+
+Extensions can add languages, tools, etc. to your code editor depending on what you use the editor for.
+#### 1) Open your code editor and head to the Extensions View
+The Extensions View can be found by selecting the Extensions Icon (see below) in the Activity Bar on the left. Or by pressing `Ctrl+Shift+X`.
+![Extensions Icon](extensions-view-icon.png)
+
+#### 2) Install Julia Extension
+Search for and install the Julia Extension by julialang to be able to use Julia in the Editor.
+
+The Julia extension allows you to run `.jl` files (Julia scripts).
+
+Let's create a short script! In the top bar, go to `File` and select `New File...` to create a blank document. In the drop-down menu, select Julia. 
+Type:
+```julia
+println("Hello, World!")
+```
+in your new file and press `Shift+Enter` or click the little grey Play button in the top right corner to run the new program.
+If Julia and Code are properly set up, a Julia REPL should appear at the bottom of the window with the output:
+```{julia}
+#| echo: false
+println("Hello, World!")
+```
+This means Julia support is properly set up in Code!
+
+#### 3) Install Jupyter Extension
+Search for and install the Jupyter Extension by Microsoft. Doing so should add several extensions to your editor: Jupyter (the main Jupyter extension), Jupyter Cell Tags, Jupyter Keymaps, Jupyter Notebook Renderers, and Jupyter Slide Show.
+
+The Jupyter Extension allows you to write and run so-called Jupyter notebooks (`.ipynb` files). These notebooks are composed of cells. There are two cell types: Markdown cells and Code cells. 
+
+Markdown cells are text fields for the file using a language called Markdown.
+
+Code cells can be used for typing executable code in small chunks. Each code cell can be run individually, or the whole file together. This is great for when you want to see the code output at several points in your code.
+
+Let's create a new Jupyter file! In the top bar, go to `File` and select `New File...` to create a blank document. In the drop-down menu, select `Jupyter Notebook`. 
+By default, the notebook opens with one code cell. See in the bottom right corner of the empty cell: it will say `Python`. Let's change that to Julia.
+Click that corner and, from the drop-down menu, select `Julia`.
+This cell is now a Julia code cell in which we can start working.
+Type:
+```julia
+println("Hello, World!")
+```
+Press `Ctrl+Enter` or click the little grey play button to the left of the cell to run the cell. 
+If a drop-down menu appears to select the language, select `Julia` and if a drop-down menu appears asking to select the version, select `release channel`.
