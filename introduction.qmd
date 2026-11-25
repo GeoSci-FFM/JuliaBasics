@@ -15,6 +15,7 @@ Markdown is an easy to read and write text format:
 Here is a Julia code cell:
 
 ```{julia}
+Pkg.instantiate()
 using Plots
 x = LinRange(0, pi, 90)
 y = sin.(x)

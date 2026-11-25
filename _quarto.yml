@@ -8,7 +8,10 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - introduction.qmd
+      - Data_Types_and_Basic_Functions.qmd
+      - arrays.qmd
+      - Functions.qmd
+      - Loops.qmd
 
 format:
   html:

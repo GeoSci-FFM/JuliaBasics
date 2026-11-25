@@ -1,19 +1,17 @@
-- Introduction: Computer architecture, programming languages
+- Introduction: Computer architecture, programming languages,  versioninfo julia function
 - Motivation: What can we do with programming? Why we should use it?
-- General Programing 101: How does it work?
+- General Programing 101: How does it work?/ Programming for Geosyenhists
 - How to get started
     - Installation 
         - Programming language
         - Code editor
         - Extension
-        - Terminal
+        - Terminal (and file formats)
     - Packages
+        - environment activate --temp
         - What is a package
         - Package manager
-        - using a package
-    - File formats
-        - IPYNB
-        - JL
+        - using a package   
 - First Programming lesson 
     - types 
     - basic arithmethics (CALCULATOR)
@@ -27,10 +25,10 @@
         - allocation 
     - Tuples
     - other Data Types (structures and dictonaries)
-- loading data
+- loading data, georock
 - functions
 - loops
-- broadcasting
+- broadcasting = array programming tutorial
 - creating nice diagramms
     - line plot 
     - scatter plot

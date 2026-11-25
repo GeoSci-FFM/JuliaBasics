@@ -45,7 +45,7 @@ typeof(b)
 ```{julia}
 typeof(c)
 ```
-Below the code box with `typeof()` you can see the output 'Int64'. This means that the type of 'a' is a signed integer that is represented by 64 bits. There is also the possibility to have other data types e.g. 'Int32'. The main difference between this notations is that with more bits a broader range of values can be covered. An Int32 could be used for a range of -2147483648 to 2147483647 while an Int64 could be used for a range of -9223372036854775808 to 9223372036854775807.
+Below the code box with `typeof()` you can see the output 'Int64'. This means that the type of 'a' is a signed integer that is represented by 64 bits. There is also the possibility to have other data types e.g. 'Int32'. The main difference between this notations is that with more bits a broader range of values can be covered. An Int32 could be used for a range of -2147483648 to 2147483648 while an Int64 could be used for a range of -9223372036854775808 to 9223372036854775808.
 
 By writing `typeof()` you are using a function. You can regognize a function by the parentheses `()` after the name of the function. Functions can take arguments, which will be placed inside the parentheses, and return values. In this case, the argument is the variable you want to check the type of and the return value is the type of data. You can also see that the name of the color of the name of the function and the parentheses are written in a different color than the rest of the code. This is called syntax highlighting and it helps you to read the code easier.
 
