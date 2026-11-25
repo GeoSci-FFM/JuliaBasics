@@ -15,10 +15,12 @@ website:
         text: Arrays
       - href: Functions.qmd
         text: Functions
+      - href: plotting.qmd
+        text: Plots
       - href: Loops.qmd
         text: Loops
-      - href: about.qmd
-        text: About
+      - href: Broadcasting.qmd
+        text: Broadcasting
 format:
   html:
     theme:
