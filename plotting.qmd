@@ -58,7 +58,7 @@ y =  LinRange(-50,50,200)
 T =  exp.(-((1.5*x').^2 .+ y.^2) / (2*(15^2))) # gaussian function
 ```
 As we want T to be a two-dimensional array, we need to make sure to transpose `x` in the expression, as both `x` and `y` are defined as column vectors.
-To visualize this data we can still use a two-dimensional plot and plot the heat distribution as colours. This is called a `heatmap()` and can again take many arguments, `heatmap(x,y,z)` will use x as input for the x-axis, y for the y-axis and z for the coloring:
+To visualize this data we can still use a two-dimensional plot and plot the heat distribution as colours. This is called a `heatmap()` and can again take many arguments, `heatmap(x,y,z)` will use x as input for the x-axis, y for the y-axis and z for the colouring:
 ```{julia}
 #| label: fig-heatmap
 heatmap(x,y,T, xlabel="x", ylabel="y", aspect_ratio=1, xlims=extrema(x), ylims=extrema(y))
@@ -72,7 +72,7 @@ contour(x,y,T, xlabel="x", ylabel="y", aspect_ratio=1, xlims=extrema(x), ylims=e
 ```
 
 ## Other projections
-Aside from a cartesian coordinate system, we can also plot some data using a polar projection by setting the argument `proj` to polar
+Aside from a Cartesian coordinate system, we can also plot some data using a polar projection by setting the argument `proj` to polar
 ```{julia}
 #| label: fig-polar
 θ = LinRange(0,2pi,181)
