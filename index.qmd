@@ -2,6 +2,4 @@
 title: "JuliaBasics"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This is an introductory course to programming and numerical modelling in Julia.

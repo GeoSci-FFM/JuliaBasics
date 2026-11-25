@@ -12,12 +12,12 @@
         - What is a package
         - Package manager
         - using a package   
-- First Programming lesson 
+- First Programming lesson /
     - types 
     - basic arithmethics (CALCULATOR)
     - using functions
 - Data storage
-    - Arrays
+    - Arrays /
         - vectors
         - matrices
         - access data
@@ -26,8 +26,8 @@
     - Tuples
     - other Data Types (structures and dictonaries)
 - loading data, georock
-- functions
-- loops
+- functions /
+- loops /
 - broadcasting = array programming tutorial
 - creating nice diagramms
     - line plot 

@@ -9,6 +9,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: Installation.qmd
+        text: Installation
       - href: Data_Types_and_Basic_Functions.qmd
         text: Data Types
       - href: arrays.qmd
