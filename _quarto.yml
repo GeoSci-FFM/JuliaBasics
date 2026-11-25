@@ -3,16 +3,22 @@ project:
 
 website:
   title: "JuliaBasics"
-  navbar:
-    left:
+  sidebar:
+    search: false
+    style: "docked"
+    contents:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - Data_Types_and_Basic_Functions.qmd
-      - arrays.qmd
-      - Functions.qmd
-      - Loops.qmd
-
+      - href: Data_Types_and_Basic_Functions.qmd
+        text: Data Types
+      - href: arrays.qmd
+        text: Arrays
+      - href: Functions.qmd
+        text: Functions
+      - href: Loops.qmd
+        text: Loops
+      - href: about.qmd
+        text: About
 format:
   html:
     theme:
@@ -20,5 +26,6 @@ format:
       - brand
     css: styles.css
     toc: true
+    code-overflow: wrap
 
 engines: ['julia']
