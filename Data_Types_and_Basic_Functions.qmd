@@ -79,10 +79,6 @@ and with radians:
 
 The basic arithmetic operators `+`, `-`, `*` and `\` are also functions, but they are written in a different way.
 
-# Check Your Knowledge
-
-{{< include Data_Types_and_Basic_Functions_Quiz.qmd >}}
-
 # Try it on Your Own
 Go to Your Editor (e.g. VSCode) or Google Colab and create a new .IPYNB file (Jupyter Notebook), add a new code cell and define some Variables. Use the `typeof()` function and the `sizeof()` function to check the type and the size of your variables. After that try to perform some basic arethmetic operations like `+`, `-`, `*` and `\` with your variables. 
 
