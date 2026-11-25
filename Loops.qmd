@@ -31,15 +31,13 @@ x != y
 ```
 # If statements
 Logical operations are often used in if statements. To write an if statment you start with the keyword `if` followed by a condition and end with the keyword `end`. Inside the statment you define the action that should be performed. In the if statement the condition will be tested and if it is met (the logical operation returns `true`) an action will be performed. In this example the if statement test if x is smaller than y and if this is the case 1 is added to x.
-```{julia}
-#| output: false
+```julia
 if x < y
    x + 1
 end
 ```
 It is also possible to add more condtitions into an if statement. For this the keyword `elseif` is used:
-```{julia}
-#| output: false
+```julia
 if x < y
    x = x + 1
 elseif x > Y
@@ -47,8 +45,7 @@ elseif x > Y
 end
 ```
 If you want to define an operation that should be executed if the conditions tested with `if` and `elseif` are not met you can use the keyword `else`:
-```{julia}
-#| output: false
+```julia
 if x < y
     x = x + 1
 elseif x > Y
@@ -62,7 +59,7 @@ In a loop a defined operation is execute several times. How often the loop repea
 ## for statement
 A loop with a `for` statment starts with the keyword `for` and ends with the keyword `end`. To control the number of repetitions an index that varies in a defined range can be used:
 ```{julia}
-for i in 1:10
+for i in 1:5
     println("This is repetition $i")
 end
 ```
@@ -74,7 +71,7 @@ end
 ```
 In a similar way a loop with a for statement can be used to go through all the entries of an array (e.g. with using `eachindex()`) and do an operation with it (e.g. dividing all the values by 100 and store them in a second vector).
 ```{julia}
-a = [8.0,10.0,40.0,2.0,5.0]
+a = [8.0, 10.0, 40.0, 2.0, 5.0]
 b = zeros(length(a))
 for i in eachindex(a)
     b[i] = a[i]/100
@@ -85,27 +82,31 @@ display(b)
 A `while` statement starts with the keyword `while` and ends with the keyword `end`. In contrast to the `for` statement a loop with a `while` statement will not repeat an action a defined number of times but repeat the action as long as a defined condition is true.
 ```{julia}
 i = 1
-while i < 5
+while i < 3
     println("$i is smaller than 5")
+    i+=1
 end
 ```
 It is also possible to combine `for` and `while` statements in a loop:
 ```{julia}
-for i in 1:10
+for i in 1:5
     println("This is repetition $i")
-    while i < 5 
+    while i < 3
         println("$i is smaller than 5")
+    i+=1
     end
 end
 ```
 In loops you can add a `break` keyword to interrupt the loop.
 ```{julia}
-for i in 1:10
+for i in 1:5
     println("This is repetition $i")
-    while i < 5 
+    while i < 3 
         println("$i is smaller than 5")
-        if i > 3
+        if i > 2
             break
+        end
+        i+=1
     end
 end
 ```
