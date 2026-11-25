@@ -2,7 +2,7 @@
 - Motivation: What can we do with programming? Why we should use it?
 - General Programing 101: How does it work?/ Programming for Geosyenhists
 - How to get started
-    - Installation 
+    - Installation /
         - Programming language
         - Code editor
         - Extension
@@ -28,8 +28,9 @@
 - loading data, georock
 - functions /
 - loops /
-- broadcasting = array programming tutorial
-- creating nice diagramms
+- broadcasting (/)
+    = array programming tutorial
+- creating nice diagramms (/)
     - line plot 
     - scatter plot
     - heat maps
