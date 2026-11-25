@@ -1,0 +1,81 @@
+---
+title: "Packages"
+---
+## What is a package?
+
+## Package Manager
+When installing Julia in the previous lesson you already got a short introduction to the package manager. 
+
+## Adding a Package
+Open the Julia REPL, either in the terminal as in the previous lesson or in Code. To open the Julia REPL in Code press `Alt+J Alt+O` or go to the search bar at the top of the window and type `>`, then find `Julia: Start REPL`.
+
+Press `]` to enter the Pkg REPL. You should see:
+```julia
+(@v1.13) pkg> 
+```
+
+The syntax to add a new package is `add <package name>`. Always make sure you use the correct spelling, capitalization and usage of spaces. So, we will use this to add a package called `Statistics` to add some more statistical functions to Julia. In the Pkg REPL, run:
+```julia
+add Statistics
+```
+This will add the package globally to your Julia installation (*globally* here means you can use the package in any folder where you can run Julia. This is in contrast to adding a package locally to an environment, which will be explained later on).
+
+**Adding a new package can sometimes take a while, so don't get stressed!**
+
+You can also add several packages at once, simply separate the package by a comma `,`.
+
+After the package has been added, it is available to you in the Julia REPL, Julia scripts, and Jupyter notebooks.
+
+Inside the Pkg REPL you can see which packages you have installed. Run:
+```julia
+status
+```
+This should return:
+```
+Status `~/.julia/environments/v1.13/Project.toml`
+  [10745b16] Statistics v1.11.5
+```
+
+## Using a Package
+Head back to the Julia REPL to use the package. To use a package in a code you will always first need to load it.
+To test this, try running a function provided by `Statistics` without loading it in the current session:
+```julia
+mean([1,2])
+```
+```
+ERROR: UndefVarError: `mean` not defined in `Main`
+```
+As `mean()` is not provided in base Julia, this returns an error.
+This time, we load the `Statistics` package first. The syntax to add a new package is `using <package name>`. Run:
+```{julia}
+using Statistics
+mean([1,2])
+```
+Leave the Julia REPL and restart it. 
+Now try again:
+```julia
+mean([1,2])
+```
+Calling `mean()` returns an error again. But don't worry, your package is not gone! Head to the Pkg REPL and run `status`. You should get the same result as when you checked before.
+Load the `Statistics` package and run the line again. It works!
+
+It won't be necessary to load a package in front of every line of code where you need a functionality from the package. If you load a package, you will be able to use it in the active session (Restarting the REPL like we just did will start a new session).
+
+In a script, you can simply load all packages you need throughout at the very beginning.
+
+## Useful packages for the course
+During this course we will be using the following packages. Since it takes a while to add packages you may want to add them all now already.
+
+(To add several packages at once, just separate the names by a comma `,`, i.e. to add `Statistics`and `LinearAlgebra`, run `add Statistics, LinearAlgebra`.)
+
+ - Statistics
+ - LinearAlgebra
+ - ...
+
+## Environments
+Sometimes you don't want to add packages globally, as some packages can cause conflicts with others and to keep separated workspaces.
+
+Just like you might want to clear off the desk between different tasks to avoid unnecessary clutter. Imagine sitting at your desk. While doing an exercise sheet you need a piece of paper and a pen. But afterwards you want to work on your watercolour painting. You no longer need that writing paper and pen, but rather some watercolour paper, paint, and water. Leaving the writing utensils on the work surface just causes problems.
+
+
+## Temporary environments
