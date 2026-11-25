@@ -4,7 +4,7 @@ format: html
 ---
 # Boolean and Conditions
 
-Besides the data types that we learned sofar there is another type of data called boolean. A boolean can either have the value `true` or `false`. Boolean numbers are for example:
+Besides the data types that we learned sofar there is another type of data called boolean. A boolean can either have the value `true` or `false`. If you test the relation of two variables using logical operators the result will be a boolean. The following logical operators can be used:
 
 - `==` (equal to)
 - `!=` (not equal to)
@@ -12,6 +12,11 @@ Besides the data types that we learned sofar there is another type of data calle
 - `<`  (less than)
 - `>=` (greater than or equal to)
 - `<=` (less than or equal to)
+
+Logical operators can also be combined using operators for 'and' and 'or':
+
+- `&&` (and)
+- `||` (or)
 
 If you use these conditions to check the relation of two variables it will return `true` or `false`:
 ```{julia}
@@ -25,14 +30,14 @@ y = 10
 x != y
 ```
 # If statements
-Conditions can be used in an if statement, that will test the condition and if it is met perform an action (In this case the if statement test if x is smaller than y and if this is the case add 1 to x). To write an if statment you start with the keyword `if` foolwed by a condition and end with the keyword `end`. Inside the statment you define the action that should be performed.
+Logical operations are often used in if statements. To write an if statment you start with the keyword `if` followed by a condition and end with the keyword `end`. Inside the statment you define the action that should be performed. In the if statement the condition will be tested and if it is met (the logical operation returns `true`) an action will be performed. In this example the if statement test if x is smaller than y and if this is the case 1 is added to x.
 ```{julia}
 #| output: false
 if x < y
    x + 1
 end
 ```
-You can aslo add other tests and condtitions in an if statement. For this you should use the keyword `elseif`:
+It is also possible to add more condtitions into an if statement. For this the keyword `elseif` is used:
 ```{julia}
 #| output: false
 if x < y
@@ -41,7 +46,7 @@ elseif x > Y
    x = x - 1
 end
 ```
-If you want to prescribe an operation if the conditions tested with `if` and `elseif` are not met you can use the keyword `else`:
+If you want to define an operation that should be executed if the conditions tested with `if` and `elseif` are not met you can use the keyword `else`:
 ```{julia}
 #| output: false
 if x < y
@@ -53,9 +58,9 @@ else
 end
 ```
 # Loops
-In a loop a defined operation is execute several times. How often the loop repets this action can be controlled with the `for` or `while` statement.
+In a loop a defined operation is execute several times. How often the loop repeats this action can be controlled with the `for` or `while` statement.
 ## for statement
-A loop with a `for` statment starts with the keyword `for` and ends with the keyword `end`. To control the number of repetitions an index that should vary in a defined range can be used:
+A loop with a `for` statment starts with the keyword `for` and ends with the keyword `end`. To control the number of repetitions an index that varies in a defined range can be used:
 ```{julia}
 for i in 1:10
     println("This is repetition $i")
@@ -67,18 +72,42 @@ for i in 1:2:10
     println("This is repetition $i")
 end
 ```
-In a similar way a loop with a for statement can be used to go through all the entries of an array and do an operation with it.
+In a similar way a loop with a for statement can be used to go through all the entries of an array (e.g. with using `eachindex()`) and do an operation with it (e.g. dividing all the values by 100 and store them in a second vector).
 ```{julia}
 a = [8.0,10.0,40.0,2.0,5.0]
-b = zeros(lenght(a))
-for i in 1:length(a)
+b = zeros(length(a))
+for i in eachindex(a)
     b[i] = a[i]/100
 end
 display(b)
 ```
 ## while statement
-
-# Check Your Knowledge
-
+A `while` statement starts with the keyword `while` and ends with the keyword `end`. In contrast to the `for` statement a loop with a `while` statement will not repeat an action a defined number of times but repeat the action as long as a defined condition is true.
+```{julia}
+i = 1
+while i < 5
+    println("$i is smaller than 5")
+end
+```
+It is also possible to combine `for` and `while` statements in a loop:
+```{julia}
+for i in 1:10
+    println("This is repetition $i")
+    while i < 5 
+        println("$i is smaller than 5")
+    end
+end
+```
+In loops you can add a `break` keyword to interrupt the loop.
+```{julia}
+for i in 1:10
+    println("This is repetition $i")
+    while i < 5 
+        println("$i is smaller than 5")
+        if i > 3
+            break
+    end
+end
+```
 # Try it on Your Own
-Write a function that test if the ratio of two variables a and b is smaller, eqaul or larger than one. and prints out the result.
+Create an empty 1D-array with 20 elements using the `zeros()` function and then write a loop that will fill the array with the index number of the array. For an array with two elements the result should look like this in the end a=[1,2]. In a second step add an if statement to the loop that sets all values of the array that are larger than 15 to zero. 
