@@ -3,7 +3,7 @@ title: "Functions"
 format: html
 ---
 
-# Defining Your own Functions
+## Defining Your own Functions
 
 As outlined before the elementary functioncs can be used to perform basic calculations. 
 ```{julia}
@@ -51,7 +51,7 @@ y = 5
 my_function(x,y)
 ```
 Defining a function instead of coding the operation directly is especially useful if the action or calculation should be perfomed more than one time. 
-# Try it on Your Own
+## Try it on Your Own
 
 Write a function that takes the radius of a circle as input argument and calculates the area and the circumference of the circle for 3 different values for the radius (e.g. 3 cm, 10 cm and 17 cm). 
 

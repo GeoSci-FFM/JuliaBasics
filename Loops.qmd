@@ -2,7 +2,7 @@
 title: "Bools, Conditions and Loops"
 format: html
 ---
-# Boolean and Conditions
+## Boolean and Conditions
 
 Besides the data types that we learned sofar there is another type of data called boolean. A boolean can either have the value `true` or `false`. If you test the relation of two variables using logical operators the result will be a boolean. The following logical operators can be used:
 
@@ -29,7 +29,7 @@ x = 5
 y = 10
 x != y
 ```
-# If statements
+## If statements
 Logical operations are often used in if statements. To write an if statment you start with the keyword `if` followed by a condition and end with the keyword `end`. Inside the statment you define the action that should be performed. In the if statement the condition will be tested and if it is met (the logical operation returns `true`) an action will be performed. In this example the if statement test if x is smaller than y and if this is the case 1 is added to x.
 ```julia
 if x < y
@@ -54,9 +54,9 @@ else
     println("x and y are equal.")
 end
 ```
-# Loops
+## Loops
 In a loop a defined operation is execute several times. How often the loop repeats this action can be controlled with the `for` or `while` statement.
-## for statement
+### for statement
 A loop with a `for` statment starts with the keyword `for` and ends with the keyword `end`. To control the number of repetitions an index that varies in a defined range can be used:
 ```{julia}
 for i in 1:5
@@ -78,7 +78,7 @@ for i in eachindex(a)
 end
 display(b)
 ```
-## while statement
+### while statement
 A `while` statement starts with the keyword `while` and ends with the keyword `end`. In contrast to the `for` statement a loop with a `while` statement will not repeat an action a defined number of times but repeat the action as long as a defined condition is true.
 ```{julia}
 i = 1
@@ -110,5 +110,5 @@ for i in 1:5
     end
 end
 ```
-# Try it on Your Own
+## Try it on Your Own
 Create an empty 1D-array with 20 elements using the `zeros()` function and then write a loop that will fill the array with the index number of the array. For an array with two elements the result should look like this in the end a=[1,2]. In a second step add an if statement to the loop that sets all values of the array that are larger than 15 to zero. 

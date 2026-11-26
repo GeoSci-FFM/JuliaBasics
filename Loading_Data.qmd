@@ -2,7 +2,7 @@
 title: "Loading Data"
 format: html
 ---
-# Loading Different File Formats
+## Loading Different File Formats
 How data can be loaded into julia depends on the file format. There is the package called `FileIO` which aims to provide a common way for reading and writing data of different file formats. This package contains the functions `load()` and `save()`. With this functions files in the [registered file formats](https://juliaio.github.io/FileIO.jl/stable/registry/) should be able to be read and saved like this:
 ```julia
 using FileIO
@@ -11,7 +11,7 @@ data = load("path_to_your_file")
 save("path_to_your_file", data)
 Besides the `FileIO` package there are also packages for loading file formats for example the `NPZ` and the `JSON ` package.
 ```
-## NPZ Files
+### NPZ Files
 NPZ files and can be loaded with the `NPZ` package:
 
 ```julia
@@ -40,7 +40,7 @@ To view a list of the keys the function `keys()` can be used:
 ```{julia}
 keys(data)
 ```
-## JSON Files
+### JSON Files
 JSON files can be loaded with the `JSON ` package:
 
 ```julia
@@ -49,7 +49,7 @@ data = JSON.parsefile("path_to_your_json_file")
 ```
 The Data in the json file are also structured like a dictionary. So like for the read data from the NPZ file the data can be extracted with the keys of the dictionary.
 
-# Loading CSV Files into an Data Frame
+## Loading CSV Files into an Data Frame
 
 CSV files can be loades into an Data Frame for example with the `CSVFiles` package and the `DataFrames` package.
 ```julia
@@ -74,5 +74,5 @@ You can asingn the data stored in the Data Frame to variables and use them in yo
 x = df."name_of_the_first_column"
 y = df."name_of_the_second_column"
 ```
-# Try it on Your Own
+## Try it on Your Own
 Go to the [GEOROC](https://georoc.eu/georoc/new-query2.asp) database and download a dataset as CSV-file (e.g. the data set [2026-09-WSTPOX_AVANAVERA_LARGE_IGNEOUS_PROVINCE.csv](https://data.goettingen-research-online.de/file.xhtml?persistentId=doi:10.25625/WSTPOX/VJA02N)). Load the data as an Dataframe using the `CSVFiles` and the `DataFrames` package. View the names of all columns of the Data Frame, store some of the columns as variables and make a scatterplot with some of the messured trace elements (e.g Nb vs. La).

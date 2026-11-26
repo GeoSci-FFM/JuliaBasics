@@ -1,0 +1,59 @@
+---
+title: "Data Types and FunctionsQuiz"
+format:
+  revealjs:
+    quiz: 
+      checkKey: 'c'
+      resetKey: 'q'
+      shuffleKey: 't'
+      allowNumberKeys: true
+      disableOnCheck: false
+      disableReset: false
+      shuffleOptions: true
+      includeScore: false
+revealjs-plugins:
+  - quiz
+---
+## Which one is an integer? {.quiz-question .quiz-multiple}
+
+- [2.5]{data-explanation="2.5 is a Floating Point number"}
+- [3]{.correct}
+- ['a']{data-explanation="'a' is a character"}
+- [-2]{.correct}
+
+::: footer
+Click on the correct options then click the check button. If you got it wrong click reset and try again.
+:::
+
+## Which one is an character? {.quiz-question .quiz-multiple}
+
+- "hello"
+- 10.3
+- ['x']{.correct}
+- -2
+
+::: footer
+Click on the correct options then click the check button. If you got it wrong click reset and try again.
+:::
+
+## Which statement is true? {.quiz-question .quiz-multiple}
+
+- [typeof() is a function]{.correct}
+- [typeof() can be used to find out the data Type of a variable]{.correct}
+- typeof() does not need an input argument
+- typeof() can only be used with Integers and Floating point numbers
+
+::: footer
+Click on the correct options then click the check button. If you got it wrong click reset and try again.
+:::
+
+## Which statement is true? {.quiz-question .quiz-multiple}
+
+- [sizeof() is a function]{.correct}
+- [sizeof() can be used to find out the size of variable in bytes]{.correct}
+- sizeof() can be used to find out the lenght of an element
+- sizeof() needs an input argument{.correct}
+
+::: footer
+Click on the correct options then click the check button. If you got it wrong click reset and try again.
+:::

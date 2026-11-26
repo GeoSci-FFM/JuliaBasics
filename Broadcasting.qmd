@@ -2,7 +2,7 @@
 title: "Broadcasting"
 format: html
 ---
-# Broadcasting
+## Broadcasting
 As outlined before loops can be used to iterate through a vector and perform defined operations for each individual element. If we want to sum up two vectors elementwise we could use a `for` loop:
 ```{julia}
 x = [1.0,2.0,3.0]
@@ -36,7 +36,7 @@ z = exp.(x)
 
 display(z)
 ```
-# Try it on Your Own
+## Try it on Your Own
 Create a LinRange with 100 points ranging from 0 to 2$\pi$ and store it in the variable x, then compute the sine and the cosine of the LinRange using the `sin()` and `cos()` function with the `.` operator and store them in the variables sin_x and cos_x. To visualize use this little skript:
 ```julia
 using Plots

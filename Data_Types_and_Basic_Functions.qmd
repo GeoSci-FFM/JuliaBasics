@@ -2,7 +2,7 @@
 title: "Data Types and Basic Functions"
 format: html
 ---
-# Data Types and Variables
+## Data Types and Variables
 In programming languages different types of data can be used. The most common types are:
 
 - Integer numbers (e.g. 1, 2, 3)
@@ -32,7 +32,7 @@ y = b + b
 ```{julia}
 my_result = my_variable_1 + my_variable_2
 ```
-# Basic Functions
+## Basic Functions
 
 If you forgot the data type of one of your variables you can use `typeof()` to check it:
 
@@ -79,6 +79,6 @@ and with radians:
 
 The basic arithmetic operators `+`, `-`, `*` and `\` are also functions, but they are written in a different way.
 
-# Try it on Your Own
+## Try it on Your Own
 Go to Your Editor (e.g. VSCode) or Google Colab and create a new .IPYNB file (Jupyter Notebook), add a new code cell and define some Variables. Use the `typeof()` function and the `sizeof()` function to check the type and the size of your variables. After that try to perform some basic arethmetic operations like `+`, `-`, `*` and `\` with your variables. 
 
