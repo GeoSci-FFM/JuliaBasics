@@ -1,0 +1,78 @@
+---
+title: "Loading Data"
+format: html
+---
+# Loading Different File Formats
+How data can be loaded into julia depends on the file format. There is the package called `FileIO` which aims to provide a common way for reading and writing data of different file formats. This package contains the functions `load()` and `save()`. With this functions files in the [registered file formats](https://juliaio.github.io/FileIO.jl/stable/registry/) should be able to be read and saved like this:
+```julia
+using FileIO
+data = load("path_to_your_file")
+...
+save("path_to_your_file", data)
+Besides the `FileIO` package there are also packages for loading file formats for example the `NPZ` and the `JSON ` package.
+```
+## NPZ Files
+NPZ files and can be loaded with the `NPZ` package:
+
+```julia
+using NPZ
+data = npzread("path_to_your_npz_file")
+```
+The data is the read as an dictionary, so after reading the NPZ file you will have to extract the data from this dictonary. For example the dictionary could look like this:
+```{julia}
+#| echo: false
+using Dictionaries
+data = Dictionary(("x", "y"), ([1.0,2.0,3.0],[4.0,2.0,3.0]));
+```
+
+```julia
+ "x" │ [1.0, 2.0, 3.0]
+ "y" │ [4.0, 2.0, 3.0]
+```
+Than you can extract the data using the keys of the dictionary: 
+
+```julia
+x = data["x"]
+y = data["y"]
+```
+To view a list of the keys the function `keys()` can be used:
+
+```{julia}
+keys(data)
+```
+## JSON Files
+JSON files can be loaded with the `JSON ` package:
+
+```julia
+using JSON
+data = JSON.parsefile("path_to_your_json_file") 
+```
+The Data in the json file are also structured like a dictionary. So like for the read data from the NPZ file the data can be extracted with the keys of the dictionary.
+
+# Loading CSV Files into an Data Frame
+
+CSV files can be loades into an Data Frame for example with the `CSVFiles` package and the `DataFrames` package.
+```julia
+using CSVFiles, DataFrames
+df = DataFrame(load("data.csv"))
+```
+After the DataFrame is loaded the data in the columns can be acsessed. For this it is usefull to know the names of the columns. To Extract the names of the columns of the DataFrame the function `names()` can be used:
+```julia
+names(df)
+```
+```julia
+for name in names(df)
+    println(name)
+end
+```
+The columns of the DataFrame can be extracted in several ways for example like this:
+```julia
+df."name_of_the_column"
+```
+You can asingn the data stored in the Data Frame to variables and use them in your further code:
+```julia
+x = df."name_of_the_first_column"
+y = df."name_of_the_second_column"
+```
+# Try it on Your Own
+Go to the [GEOROC](https://georoc.eu/georoc/new-query2.asp) database and download a dataset as CSV-file (e.g. the data set [2026-09-WSTPOX_AVANAVERA_LARGE_IGNEOUS_PROVINCE.csv](https://data.goettingen-research-online.de/file.xhtml?persistentId=doi:10.25625/WSTPOX/VJA02N)). Load the data as an Dataframe using the `CSVFiles` and the `DataFrames` package. View the names of all columns of the Data Frame, store some of the columns as variables and make a scatterplot with some of the messured trace elements (e.g Nb vs. La).

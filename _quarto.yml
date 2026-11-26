@@ -27,6 +27,8 @@ website:
         text: Broadcasting
       - href: plotting.qmd
         text: Plots
+      - href: Loading_Data.qmd
+        text: Loading Data
 format:
   html:
     theme:
