@@ -3,8 +3,7 @@ title: "Arrays"
 format: html
 ---
 ## What are arrays?
-Arrays are a data structure used to store values. In Julia, arrays are generated using square brackets `[]`, with each row separated by a semicolon `;`. Each entry is assigned an index (position), starting from 1 (in Julia or MATLAB).
-(Beware! Many languages, like Python, start counting at 0)
+Arrays are a data structure used to store values. In Julia, arrays are generated using square brackets `[]`, with each row separated by a semicolon `;`. Each entry is assigned an index (position), starting from 1 (in Julia or MATLAB ! Beware, Many languages, like Python, start counting at 0!).
 This can be thought of akin to an office building with several numbered floors.
 ```{julia}
 #| output: false
@@ -76,7 +75,7 @@ office = building[3,1]
 ```
 When providing more than a single index, the indices are separated by a comma `,`. This pattern can be extended to any number of dimensions. In a three-dimensional array, `T[2,3,1]` will select the entry in the second row, third column and first 'page' of the array.
 
-## Edit enties
+## Edit entries
 An array is mutable, meaning its contents can be edited. To store a certain value inside an existing array, the index of the array can simply be overwritten. 
 
 Let's say the Lake water experts in our building have been replaced by rain experts.
@@ -90,7 +89,7 @@ building
 ```
 
 ### Useful Functions
-These are some select few functions that come in handy fairly often when dealing with arrays.
+These are some selected functions that come in handy fairly often when dealing with arrays.
 The function `size()` tells you the dimensions (how many rows, columns, etc.) an array has. In the case of the Matrix `M` from above this is: 
 ```{julia}
 size(M)
@@ -159,7 +158,5 @@ Arrays can also be higher dimensional than a matrix. A higher dimensional array 
 ```{julia}
 T = zeros(4,3,2)
 ```
-
-## Check Your Knowledge
-
 ## Try It on Your Own
+Use the function `zeros()` to create a one dimensional vector with 5 entries, then change the first and the last entry of the array to 2.0 by using the corresponding index.
