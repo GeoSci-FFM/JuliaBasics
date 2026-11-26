@@ -1,0 +1,38 @@
+---
+title: "Other Ways to store data"
+format: html
+---
+# Tuples and dictionaries
+Besides Arrays there are some other ways to store data like structures, tuples and dictionaries. In tuples and dictionaries different types of data can be stored (Note that this implies that mathematical operations will not be able to be applied on a tuple or a dictionary.) 
+
+A tuple can be created using round brackets `()` where the single entries are seperated by commas. If we want to stick to the office building example from the previous chapter, the information that was stored in the vector
+```julia
+#| output: false
+building = ["Flower Shop"; "Landscaping Company"; "Water Company"]
+```
+can aslo be stored as a tuple:
+```{julia}
+building = ("Flower Shop", "Landscaping Company", "Water Company")
+building[2]
+```
+Like in an array the entries of a tuple can be access by using indices e.g.
+```{julia}
+building[2]
+```
+Tuples can also be named by defining keys for the stored entries:
+```{julia}
+#| output: false
+building = (Ground_Floor="Flower Shop",First_Floor="Landscaping Company",Second_Floor="Water Company")
+```
+Then the entries can be accessed also by using the key:
+```{julia}
+building.Second_Floor
+```
+Dictionaries also use keys that are assigned to the stored data. To create a dictionary the `Dictionary()` function that is part of the `Dictionaries` can be used:
+```{julia}
+using Dictionaries
+data = Dictionary(("Ground Floor", "First Floor", "Second Floor"), ("Flower Shop","Landscaping Company","Water Company"))
+```
+
+# Try it on Your Own
+
